@@ -1,24 +1,41 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './pages/Home';
+
+
+function Submit({ isPending }) {
+  return <button disabled={isPending}>Submit</button>;
+}
 
 function App() {
+  // const [isPending, setIsPending] = useState(false);
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault(); // Prevent default form submission
+  //   setIsPending(true); // Set pending state to true
+
+  //   // Simulate form submission (2 second delay)
+  //   setTimeout(() => {
+  //     setIsPending(false); // Reset pending state
+  //     alert("Form submitted!");
+  //   }, 2000);
+  // };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  
+
+    <BrowserRouter>
+     {/* <form onSubmit={handleSubmit}>
+      <Submit isPending={isPending} />
+    </form> */}
+    
+
+    <Routes>
+     <Route path="/" element={<Home />} /> 
+    </Routes>
+
+    </BrowserRouter>
   );
 }
 
